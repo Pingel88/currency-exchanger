@@ -170,4 +170,11 @@ describe("exchange-rate", () => {
     expect(exchange.zar).toEqual("South African Rand");
     expect(exchange.zmw).toEqual("Zambian Kwacha");
   });
+
+  test("should return a string stating the currency requested and the amount in that currency", () => {
+    const usd = 50;
+    const exchangeRate = 133.0075;
+    const currency = "dzd";
+    expect(exchange.calculateCurrency(usd, currency, exchangeRate)).toEqual("Algerian Dinar: 6,650.375");
+  });
 });
