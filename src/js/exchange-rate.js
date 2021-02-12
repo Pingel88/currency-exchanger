@@ -161,4 +161,8 @@ export default class ExchangeRate {
     this.zar = "South African Rand";
     this.zmw = "Zambian Kwacha";
   }
+
+  calculateCurrency() {
+    
+  };
 }
