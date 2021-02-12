@@ -26,7 +26,7 @@ function getElements(response, usd, currency) {
     $('.showExchangeValue').hide();
   } else {
     $('.showErrors').show();
-    $('.showErrors').text("borked");
+    $('.showErrors').text(response);
     $('.showExchangeValue').hide();
   }
 }
