@@ -175,6 +175,6 @@ describe("exchange-rate", () => {
     const usd = 50;
     const exchangeRate = 133.0075;
     const currency = "dzd";
-    expect(exchange.calculateCurrency(usd, currency, exchangeRate)).toEqual("Algerian Dinar: 6,650.375");
+    expect(exchange.calculateCurrency(usd, currency, exchangeRate)).toEqual("Algerian Dinar: 6650.375");
   });
 });
