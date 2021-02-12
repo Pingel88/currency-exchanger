@@ -5,6 +5,12 @@ import './css/styles.css';
 import ExchangeRateService from './services/exchange-rate-service.js';
 import ExchangeRate from './js/exchange-rate.js';
 
+function showError(text) {
+  $('.showErrors').show();
+  $('.showErrors').text(text);
+  $('.showExchangeValue').hide();
+}
+
 
 function getElements(response, usd, currency) {
   const exchange = new ExchangeRate();
@@ -16,18 +22,12 @@ function getElements(response, usd, currency) {
       $('.showExchangeValue').text(returnString);
       $('.showErrors').hide();
     } else {
-      $('.showErrors').show();
-      $('.showErrors').text(`${capitalCurrency} is not a valid currency. Please enter a valid currency.`);
-      $('.showExchangeValue').hide();
+      showError(`${capitalCurrency} is not a valid currency. Please enter a valid currency.`);
     }
   } else if (response.result === "error") {
-    $('.showErrors').show();
-    $('.showErrors').text(`Error: ${response["error-type"]}`);
-    $('.showExchangeValue').hide();
+    showError(`Error: ${response["error-type"]}`);
   } else {
-    $('.showErrors').show();
-    $('.showErrors').text(response);
-    $('.showExchangeValue').hide();
+    showError(`Error: ${response}`);
   }
 }
 
