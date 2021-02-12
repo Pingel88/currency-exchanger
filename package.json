@@ -1,7 +1,7 @@
 {
-  "name": "weather-api",
+  "name": "currency-exchnager",
   "version": "1.0.0",
-  "description": "api practice using weather",
+  "description": "asynchrony and api project",
   "main": "main.js",
   "scripts": {
     "build": "webpack --mode development",
