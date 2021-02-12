@@ -20,13 +20,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //   }
 // }
 
-// $(document).ready(function() {
-//   $('#weatherLocation').click(function() {
-//     let city = $('#location').val();
-//     clearFields();
-//     (async function() {
-//       const response = await WeatherService.getWeather(city);
-//       getElements(response);
-//     })();
-//   });
-// });
+$(document).ready(function() {
+  $('#exchange-rate').submit(function(event) {
+    event.preventDefault();
+    const usdValue = $('#usd-value').val();
+    $('#usd-value').val("");
+    (async function() {
+      const response = await WeatherService.getWeather(city);
+      getElements(response);
+    })();
+  });
+});
