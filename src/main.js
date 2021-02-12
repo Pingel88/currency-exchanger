@@ -6,27 +6,25 @@ import ExchangeRate from './js/exchange-rate.js';
 // import './css/styles.css';
 
 
-// function getElements(response) {
-//   if (response.main) {
-//     $('.showHumidity').text(`The humidity in ${response.name} is ${response.main.humidity}%`);
-//     $('.showTemp').text(`The temperature in Kelvin is ${response.main.temp} degrees.`);
-//   } else {
-//     $('.showErrors').text(`There was an error processing your request: ${response}`);
-//   }
-// }
-
-$(document).ready(function() {
-  $('#exchange-rate').submit(function(event) {
-    event.preventDefault();
+function getElements(response, usd, currency) {
+  if (response.result === "success") {
     const exchange = new ExchangeRate();
-    const usd = $('#usd-value').val();
-    const currency = $('#currency').val();
     const capitalCurrency = currency.toUpperCase();
-    $('#usd-value').val("");
-    (async function() {
-      const response = await ExchangeRateService.exchangeRateService();
-      const returnString = exchange.calculateCurrency(usd, currency, response.conversion_rates[capitalCurrency])
-      console.log(returnString);
-    })();
-  });
+    const returnString = exchange.calculateCurrency(usd, currency, response.conversion_rates[capitalCurrency]);
+    $('.showExchangeValue').text(returnString);
+  } else if (response.result === "error") {
+    $('.showErrors').text(`${response["error-type"]}`);
+  } else {
+    $('.showErrors').text("borked");
+  }
+}
+
+$('#exchange-rate').submit(function(event) {
+  event.preventDefault();
+  const currency = $('#currency').val();
+  const usd = $('#usd-value').val();
+  (async function() {
+    const response = await ExchangeRateService.exchangeRateService();
+    getElements(response, usd, currency);
+  })();
 });
