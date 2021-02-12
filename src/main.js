@@ -1,15 +1,10 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import ExchangeRate from './services/exchangerate-service.js';
+import ExchangeRateService from './services/exchange-rate-service.js';
+import ExchangeRate from './js/exchange-rate.js';
 // import './css/styles.css';
 
-// function clearFields() {
-//   $('#location').val("");
-//   $('#showErrors').val("");
-//   $('#showHumidity').val("");
-//   $('#showTemp').val("");
-// }
 
 // function getElements(response) {
 //   if (response.main) {
@@ -23,11 +18,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 $(document).ready(function() {
   $('#exchange-rate').submit(function(event) {
     event.preventDefault();
-    const usdValue = $('#usd-value').val();
+    const exchange = new ExchangeRate();
+    const usd = $('#usd-value').val();
+    const currency = $('#currency').val();
+    const capitalCurrency = currency.toUpperCase();
     $('#usd-value').val("");
     (async function() {
-      const response = await WeatherService.getWeather(city);
-      getElements(response);
+      const response = await ExchangeRateService.exchangeRateService();
+      const returnString = exchange.calculateCurrency(usd, currency, response.conversion_rates[capitalCurrency])
+      console.log(returnString);
     })();
   });
 });
