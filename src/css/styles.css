@@ -1,3 +1,23 @@
+body {
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  color: #de855c;
+  text-align: center;
+}
+
+hr {
+  height: 1px;
+  background-color: #de855c;
+  border: none;
+}
+
+input {
+  text-align: center;
+}
+
+.container {
+  width: 400px;
+}
+
 .showErrors {
   font-weight: bold;
   color: red;

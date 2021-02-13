@@ -11,7 +11,7 @@
 * _GitHub_
 * _webpack_
 * _npm_
-* _Jest_ (maybe?)
+* _Jest_
 * _ESLint_
 * _Babel_
 

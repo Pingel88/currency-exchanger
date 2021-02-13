@@ -11,7 +11,6 @@ function showError(text) {
   $('.showExchangeValue').hide();
 }
 
-
 function getElements(response, usd, currency) {
   const exchange = new ExchangeRate();
   const capitalCurrency = currency.toUpperCase();
