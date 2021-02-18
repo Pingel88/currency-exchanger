@@ -24,11 +24,20 @@ To view this webpage and the project contents offline:
 * Open Git Bash or your preferred equivalent
 * Change the current working directory to where you want the cloned directory
 * Type `git clone`, then paste the URL from your clipboard and press enter
+* Change the current working directory to the cloned directory
+* Type `npm install` and press enter
+* Acquire and add your own API key:
+  * Create an account at https://app.exchangerate-api.com/sign-up
+  * Upon account creation, you API key should be visible at https://app.exchangerate-api.com/dashboard
+  * Copy the key to your clipboard and return to Git Bash (or equivalent)
+  * Verify you are in the root directory of the project and type `touch .env` and press enter to create a .env file
+  * If you are using a Windows machine, type `notepad .env` to open the .env file in Notepad
+  * Paste your API key in Notepad and prepend "API_KEY=" to the beginning similarly to: `API_KEY=1n2O3t4a5Re6a78l90k9E87y654321`
+  * Save and close the .env file
 * To view the webpage:
-  * Change the current working directory to the cloned directory
-  * Type `npm install` and press enter
-  * After installation is complete, type `npm run start` and press enter
+  * Return to Git Bash (or equivalent), type `npm run start` and press enter
   * Your default browser will open with the webpage viewable
+  
 ## Contact Information
 #### Mike Pingel
 #### [Email](mailto:mdpingel@gmail.com?subject=[GitHub]Epicodus%20Project%20-%20Currency%20Exchanger)
